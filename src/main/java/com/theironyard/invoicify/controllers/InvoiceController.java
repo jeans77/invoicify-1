@@ -34,7 +34,7 @@ public class InvoiceController {
 	private InvoiceRepository invoiceRepository;
 	
 	@PostMapping("create")
-	public String createInvoice(Invoice invoice, long clientId, long[] recordIds, Authentication auth) {
+	public String createInvoice(Invoice invoice, long clientId, long[] recordIds, long[] lineItemId, Authentication auth) {
 		User creator = (User) auth.getPrincipal();
 		List<BillingRecord> records = recordRepository.findByIdIn(recordIds);
 		long nowish = Calendar.getInstance().getTimeInMillis();
@@ -63,7 +63,7 @@ public class InvoiceController {
 	public ModelAndView step2(long clientId) {
 		ModelAndView mv = new ModelAndView("invoices/step-2");
 		mv.addObject("clientId", clientId);
-		mv.addObject("records", recordRepository.findByClientId(clientId));
+		mv.addObject("records", recordRepository.findByClientIdAndLineItemIsNull(clientId));
 		return mv;
 	}
 	

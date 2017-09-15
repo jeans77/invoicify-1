@@ -6,17 +6,21 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.theironyard.invoicify.models.Company;
 import com.theironyard.invoicify.models.FlatFeeBillingRecord;
+import com.theironyard.invoicify.models.Invoice;
+import com.theironyard.invoicify.models.InvoiceLineItem;
 import com.theironyard.invoicify.models.RateBasedBillingRecord;
 import com.theironyard.invoicify.models.User;
 import com.theironyard.invoicify.repositories.BillingRecordRepository;
 import com.theironyard.invoicify.repositories.CompanyRepository;
+import com.theironyard.invoicify.repositories.InvoiceLineItemRepository;
+import com.theironyard.invoicify.repositories.InvoiceRepository;
 import com.theironyard.invoicify.repositories.UserRepository;
 
 @Configuration
 @Profile("development")
 public class SeedData {
 	
-	public SeedData(BillingRecordRepository recordRepository, CompanyRepository companyRepository, UserRepository usersRepository, PasswordEncoder encoder) {
+	public SeedData(BillingRecordRepository recordRepository, CompanyRepository companyRepository, InvoiceRepository invoiceRepository, InvoiceLineItemRepository invoiceLineItemRepository, UserRepository usersRepository, PasswordEncoder encoder) {
 		usersRepository.save(new User("curtis", encoder.encode("password"), "TEACHER"));
 		User admin = usersRepository.save(new User("admin", encoder.encode("admin"), "ADMIN"));
 		User clerk = usersRepository.save(new User("clerk", encoder.encode("clerk"), "CLERK"));
@@ -35,7 +39,8 @@ public class SeedData {
 		recordRepository.save(new RateBasedBillingRecord(150, 2.5, "Painting", clerk, ajax));
 		recordRepository.save(new RateBasedBillingRecord(100, 4.25, "House cleaning", clerk, ajax));
 		recordRepository.save(new RateBasedBillingRecord(700, 8, "Palm reading", admin, lomax));
-		recordRepository.save(new RateBasedBillingRecord(1.57, 25, "Show shining", clerk, lomax));
+		recordRepository.save(new RateBasedBillingRecord(1.57, 25, "Show shining", clerk, lomax));		
+		
 	}
 
 }

@@ -28,6 +28,11 @@ public class InvoiceLineItem {
 	@ManyToOne
 	private Invoice invoice;
 	
+	
+	public InvoiceLineItem() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Long getId() {
 		return id;
 	}
