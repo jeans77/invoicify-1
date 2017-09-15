@@ -19,6 +19,9 @@ public class Company {
 	@Column(length=255)
 	private String name;
 	
+	@Column
+	private int nbrOfInvoices;
+	
 	@OneToMany(mappedBy="company")
 	private List<Invoice> invoices;
 	
