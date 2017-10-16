@@ -1,4 +1,4 @@
-package com.libertymutual.goforcode.s3example.api;
+package com.libertymutual.goforcode.s3example.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +13,7 @@ public class HomeController {
 
 	@GetMapping("")
 	public String home() {
+		System.out.println("Starting Home");
 		return "home/default";
 	}
 	
