@@ -19,12 +19,14 @@ public class HomeController {
 	
 	@GetMapping("upload")
 	public String upload() {
+		System.out.println("Starting Upload");
 		return "home/upload";
 	}
 	
 	@GetMapping("list")
 	public String list() {
-		return "home/list";
+		System.out.println("Starting List");
+		return "redirect:/tools";
 	}
 		
 }

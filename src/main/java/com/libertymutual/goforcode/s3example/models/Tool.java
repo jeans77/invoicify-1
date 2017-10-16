@@ -1,6 +1,5 @@
 package com.libertymutual.goforcode.s3example.models;
 
-import java.net.URL;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,12 +29,12 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 		private String toolDescription;
 		
 		@Column(nullable = true)
-		private URL image;
+		private String image;
 
 
 		public Tool() {}
 
-		public Tool(String toolName, String toolDescription, URL image) {
+		public Tool(String toolName, String toolDescription, String image) {
 			
 			this.toolName = toolName;
 			this.toolDescription = toolDescription;
@@ -59,11 +58,11 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 			this.toolName = toolName;
 		}
 
-		public URL getImage() {
+		public String getImage() {
 			return image;
 		}
 
-		public void setImage(URL image) {
+		public void setImage(String image) {
 			this.image = image;
 		}
 

@@ -10,7 +10,7 @@ import com.libertymutual.goforcode.s3example.repositories.ToolRepo;
 		public SeedData(ToolRepo toolRepo) {
 			System.out.println("Starting Seed");
 			Tool tool =new Tool("123456789012345678901234567890", "12345678901234567890123456789012345678901234567890123456789012345678901234567890", null);
-			toolRepo.save(new Tool("123456789012345678901234567890", "12345678901234567890123456789012345678901234567890123456789012345678901234567890", null));
+			toolRepo.save(new Tool("123456789012345678901234567890", "12345678901234567890123456789012345678901234567890123456789012345678901234567890", "https://s3-us-west-2.amazonaws.com/goforcode-oct2017-communityshade/Focusing+LED+Flashlight.jpg"));
 			toolRepo.save(new Tool("Flashlight", "Coast HP7 Focusing LED Flashlight", null));
 
 //			toolRepo.save(new Tool("Flashlight", "Coast HP7 Focusing LED Flashlight", "Safety & Security", "Coast", null, null, "Available", 4, null, user1));
