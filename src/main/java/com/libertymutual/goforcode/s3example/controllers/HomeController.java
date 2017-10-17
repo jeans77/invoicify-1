@@ -13,19 +13,25 @@ public class HomeController {
 
 	@GetMapping("")
 	public String home() {
-		System.out.println("Starting Home");
+		System.out.println("HomeController:");
 		return "home/default";
 	}
 	
 	@GetMapping("upload")
 	public String upload() {
-		System.out.println("Starting Upload");
+		System.out.println("HomeController: Upload");
 		return "home/upload";
+	}
+	
+	@GetMapping("create")
+	public String create() {
+		System.out.println("HomeController: Create");
+		return "home/create";
 	}
 	
 	@GetMapping("list")
 	public String list() {
-		System.out.println("Starting List");
+		System.out.println("HomeController: List");
 		return "redirect:/tools";
 	}
 		
